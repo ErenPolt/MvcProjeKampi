@@ -1,0 +1,32 @@
+﻿﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "HeadingByCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Başlıklar</h3>
+
+<br />
+@if (Model != null && Model.Any())
+{
+    <table class="table table-active">
+        <tr>
+            <th>Kategori Adı</th>
+            <th>Başlıklar</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.HeadingName</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Henüz bu kategoriye bir başlık eklenmemiş.</p>
+}
+<a href="/AdminCategory/Index/" class="btn btn-info">Kategori Sayfasına Dön</a>
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

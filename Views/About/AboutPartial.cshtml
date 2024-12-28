@@ -1,0 +1,33 @@
+﻿@model  EntityLayer.Concrete.About
+
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Hakkımızda Yazı Girşi
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda Veri Girişi</h2>
+            </div>
+            <form method="post" action="/About/AddAbout/">
+                <div class="modal-body">
+                    <label>Hakkımda Mertin 1</label>
+                    @Html.TextBoxFor(x => x.AboutDetails1, new { @class = "form-control" })
+                    <br />
+                    <label>Hakkımda Mertin 2</label>
+                    @Html.TextBoxFor(x => x.AboutDetails2, new { @class = "form-control" })
+                    <br />
+                    <label>Hakkımda Görsel 1</label>
+                    @Html.TextBoxFor(x => x.AboutImage1, new { @class = "form-control" })
+                    <br />
+                    <label>Hakkımda Görsel 2</label>
+                    @Html.TextBoxFor(x => x.AboutImage2, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

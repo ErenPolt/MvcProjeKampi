@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.Heading
+
+
+@{
+    ViewBag.Title = "EditHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Yazarlar</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yazar Ekleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+
+
+                        <form method="post">
+                            @Html.HiddenFor(x => x.HeadingId)
+                            <label>Başlık Adı:</label>
+                            @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "text-danger" })
+                            <br />
+                            <label>Kategori:</label>
+                            @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+                            <br />
+                            @*<label>Yazar:</label>
+                                @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.vlw, new { @class = "form-control" })*@
+                            <br />
+                            <button class="btn btn-success">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

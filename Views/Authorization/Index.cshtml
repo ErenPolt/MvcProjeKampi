@@ -1,0 +1,59 @@
+﻿@model List<EntityLayer.Concrete.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<br />
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Yetkilendirme </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Kullanıcı Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Yetkilendirme ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kullanıcı Maili</th>
+                                    <th>Yetki</th>
+                                    <th>Durum</th>
+                                    <th>Pasif Yap</th>
+                                    <th>Yetki Değiştir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+
+                                        <th>@count</th>
+                                        <td>@item.AdminUserName</td>
+                                        <td>@item.AdminRole</td>
+                                        <td>Aktif</td>
+                                        <td><a href="/Authorization/DeleteAdmin/@item.AdminId" class="btn btn-outline-danger">Pasif Yap</a></td>
+                                        <td><a href="/Authorization/EditAdmin/@item.AdminId" class="btn btn-outline-success">Yetki Değiştir</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Authorization/AddAdmin" class="btn btn-info">Yeni Admin Tanımla</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

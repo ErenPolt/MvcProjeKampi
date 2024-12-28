@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+<h1>Yeni kategori ekleme sayfası</h1>
+<br />
+<!--BeginForm;Ekleme veya güncelleme işlemlerinde kullanılır. 3 parametresi vardır..-->
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.CategoryId)
+
+        @Html.Label("Kategori Adı:")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName)
+        <br /> <br />
+        @Html.Label("Açıklama:")
+        @Html.TextAreaFor(x => x.CategoryDescription, 6, 0, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <br />
+        <button class="btn btn-success">Kategori Güncelle</button>
+    </div>
+}
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

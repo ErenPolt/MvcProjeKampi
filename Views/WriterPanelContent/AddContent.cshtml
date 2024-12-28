@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "AddContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<br />
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title"></h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">İçerik Ekleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+
+
+                        <form method="post">
+                            <input type="hidden" name="HeadingId" value="@ViewBag.d" />
+                            <label>İçeriğinizi Yazın:</label>
+                            @Html.TextAreaFor(x => x.ContentValue,10,30, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ContentValue)
+                            <br />
+                            <button class="btn btn-primary">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Yazarlar</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yazar Ekleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+
+
+                        <form method="post">
+                            <label>Yazar Unvan:</label>
+                            @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
+                            <br />
+                            <label>Yazar Adı:</label>
+                            @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterName)
+                            <br />
+                            <label>Yazar Soyadı:</label>
+                            @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterSurName)
+                            <br />
+                            <label>Yazar Mail:</label>
+                            @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterMail)
+                            <br />
+                            <label>Yazar Resim:</label>
+                            @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                            <br />
+                            <label>Hakkında:</label>
+                            @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterAbout)
+                            <br />
+                            <label>Yazar Şifre:</label>
+                            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterPassword)
+                            <br />
+                            <button class="btn btn-primary">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
